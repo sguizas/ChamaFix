@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir serviço - ChamaFix</title>
+    <link rel="icon" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pagina-cliente">
+    <div class="page">
+        <header class="hero" role="img" aria-label="Profissionais do ChamaFix"></header>
+
+        <section class="testimonials" aria-label="Avaliações de clientes">
+            <article class="testimonial-card">
+                <div class="testimonial-header">
+                    <img class="avatar" src="assets/avatar-mulher.png" alt="">
+                    <span class="handle">@cliente_um</span>
+                    <img class="star" src="assets/estrela.png" alt="Avaliação">
+                </div>
+                <p>Chamei um eletricista e foi tudo rápido.</p>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-header">
+                    <img class="avatar" src="assets/avatar-gato.png" alt="">
+                    <span class="handle">@cliente_dois</span>
+                    <img class="star" src="assets/estrela.png" alt="Avaliação">
+                </div>
+                <p>O prestador chegou no horário combinado.</p>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-header">
+                    <img class="avatar" src="assets/avatar-homem.png" alt="">
+                    <span class="handle">@cliente_tres</span>
+                    <img class="star" src="assets/estrela.png" alt="Avaliação">
+                </div>
+                <p>Gostei de acompanhar o pedido pelo site.</p>
+            </article>
+            <article class="testimonial-card">
+                <div class="testimonial-header">
+                    <img class="avatar" src="assets/avatar-foto.jpg" alt="">
+                    <span class="handle">@cliente_quatro</span>
+                    <img class="star" src="assets/estrela.png" alt="Avaliação">
+                </div>
+                <p>Agendei a pintura sem complicação.</p>
+            </article>
+        </section>
+
+        <div class="pedido-titulo">
+            <h1>Pedir um serviço</h1>
+            <p>Digite ou escolha seu bairro e clique em Chamar.</p>
+        </div>
+
+        <form class="pedido-form">
+            <label class="rotulo" for="bairro">Bairro:</label>
+            <div class="search">
+                <img class="search-icone" src="assets/magnifier.png" alt="">
+                <input id="bairro" list="lista-bairros" placeholder="Digite para pesquisar" autocomplete="off">
+            </div>
+
+            <datalist id="lista-bairros">
+            <option value="Água Rasa"></option>
+            <option value="Aclimação"></option>
+            <option value="Alto de Pinheiros"></option>
+            <option value="Bela Vista"></option>
+            <option value="Belém"></option>
+            <option value="Bom Retiro"></option>
+            <option value="Brás"></option>
+            <option value="Brooklin"></option>
+            <option value="Butantã"></option>
+            <option value="Cachoeirinha"></option>
+            <option value="Cambuci"></option>
+            <option value="Campo Belo"></option>
+            <option value="Campo Grande"></option>
+            <option value="Campo Limpo"></option>
+            <option value="Capão Redondo"></option>
+            <option value="Casa Verde"></option>
+            <option value="Cidade Ademar"></option>
+            <option value="Cidade Dutra"></option>
+            <option value="Cidade Líder"></option>
+            <option value="Cidade Tiradentes"></option>
+            <option value="Consolação"></option>
+            <option value="Freguesia do Ó"></option>
+            <option value="Grajaú"></option>
+            <option value="Guaianases"></option>
+            <option value="Interlagos"></option>
+            <option value="Ipiranga"></option>
+            <option value="Itaim Bibi"></option>
+            <option value="Itaim Paulista"></option>
+            <option value="Itaquera"></option>
+            <option value="Jabaquara"></option>
+            <option value="Jaçanã"></option>
+            <option value="Jardim Paulista"></option>
+            <option value="Jardins"></option>
+            <option value="Lapa"></option>
+            <option value="Liberdade"></option>
+            <option value="Limão"></option>
+            <option value="Mooca"></option>
+            <option value="Morumbi"></option>
+            <option value="Pacaembu"></option>
+            <option value="Penha"></option>
+            <option value="Perdizes"></option>
+            <option value="Perus"></option>
+            <option value="Pinheiros"></option>
+            <option value="Pirituba"></option>
+            <option value="Santana"></option>
+            <option value="Santo Amaro"></option>
+            <option value="São Mateus"></option>
+            <option value="Sé"></option>
+            <option value="Socorro"></option>
+            <option value="Tatuapé"></option>
+            <option value="Tremembé"></option>
+            <option value="Vila Andrade"></option>
+            <option value="Vila Formosa"></option>
+            <option value="Vila Leopoldina"></option>
+            <option value="Vila Madalena"></option>
+            <option value="Vila Maria"></option>
+            <option value="Vila Mariana"></option>
+            <option value="Vila Matilde"></option>
+            <option value="Vila Olímpia"></option>
+            <option value="Vila Prudente"></option>
+            <option value="Vila Sônia"></option>
+            </datalist>
+
+            <label class="rotulo" for="tipo">Tipo de serviço:</label>
+            <div class="search">
+                <img class="search-icone" src="assets/magnifier.png" alt="">
+                <input id="tipo" list="lista-tipos" placeholder="Digite para pesquisar" autocomplete="off">
+            </div>
+
+            <datalist id="lista-tipos">
+            <option value="Encanamento"></option>
+            <option value="Elétrica"></option>
+            <option value="Manutenção geral"></option>
+            <option value="Pintura"></option>
+            <option value="Limpeza"></option>
+            <option value="Marcenaria"></option>
+            <option value="Informática"></option>
+            <option value="Vidraçaria"></option>
+            <option value="Montagem de móveis"></option>
+            </datalist>
+
+            <p class="rotulo">Urgência:</p>
+            <div class="opcoes-urgencia">
+                <label class="opcao-urgencia"><input type="radio" name="urgencia" value="urgente"> Urgente</label>
+                <label class="opcao-urgencia"><input type="radio" name="urgencia" value="agendado"> Agendado</label>
+            </div>
+
+            <div id="bloco-agenda" class="escondido">
+                <label class="rotulo" for="data-agendada">Data:</label>
+                <input type="date" id="data-agendada">
+            </div>
+
+            <button type="button" class="botao" id="btn-chamar">Chamar</button>
+        </form>
+
+        <h2 class="titulo-pedidos">Meus pedidos</h2>
+        <div id="meus-pedidos"></div>
+
+        <nav class="page-actions">
+            <a href="index.html">Voltar</a>
+            <a href="#meus-pedidos">Meus pedidos</a>
+        </nav>
+    </div>
+
+    <script type="module" src="js/cliente.js"></script>
+</body>
+</html>

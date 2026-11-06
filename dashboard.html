@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard - ChamaFix</title>
+        <link rel="icon" href="assets/logo.png">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="pagina-dashboard">
+    <div class="container">
+        <button class="botao-status offline" id="btn-status">Offline</button>
+        <div class="menu fechado">
+            <button class="botao botao-sair" id="btn-sair">Sair</button>
+        </div>
+    </div>
+    <div class="conteudo">
+        <button class="barrinha" id="btn-menu">☰</button>
+        <h1 class="dashtitulo">Dashboard</h1>
+        <p>Bem vindo às suas finanças</p>
+
+        <div class="resumo">
+            <div class="indicador">
+                <h3>Urgente <span aria-hidden="true">🚨</span></h3>
+                <div class="linha"><span>Concluídas</span><strong id="urgentes-concluidas">0</strong></div>
+                <div class="linha"><span>Pendentes</span><strong id="urgentes-pendentes">0</strong></div>
+            </div>
+
+            <div class="indicador">
+                <h3>Total <strong class="total-numero" id="total-servicos">0</strong></h3>
+                <div class="linha"><span>Concluídas</span><strong id="servicos-concluidos">0</strong></div>
+                <div class="linha"><span>Pendentes</span><strong id="servicos-pendentes">0</strong></div>
+            </div>
+
+            <div class="indicador">
+                <h3>Avaliação</h3>
+                <p class="avaliacao-nota">4.9</p>
+                <div class="avaliacao-estrelas" aria-label="4,9 de 5 estrelas">
+                    <img src="assets/estrela.png" alt="">
+                    <img src="assets/estrela.png" alt="">
+                    <img src="assets/estrela.png" alt="">
+                    <img src="assets/estrela.png" alt="">
+                    <span class="meia-estrela"><img src="assets/estrela.png" alt=""></span>
+                </div>
+            </div>
+
+            <div class="indicador cartao-saldo">
+                <h3>Saldo</h3>
+                <p class="saldo-valor">R$ 0,00</p>
+            </div>
+
+            <div class="grafico-bloco">
+                <div class="grafico-topo">
+                    <h2>Aceitos na Semana</h2>
+                    <span class="legenda"><i></i>Aceitos</span>
+                </div>
+                <p class="total-semana">Aceitos na semana: <strong id="total-semana">0</strong></p>
+                <p class="total-semana">Concluídos na semana: <strong id="concluidos-semana">0</strong></p>
+                <div id="grafico-semana" class="grafico"></div>
+            </div>
+        </div>
+
+        <h2>Chamados urgentes</h2>
+        <div id="lista-urgentes"></div>
+
+        <h2>Chamados agendados</h2>
+        <div id="lista-agendados"></div>
+
+        <h2>Serviços em andamento</h2>
+        <div id="lista-servicos"></div>
+    </div>
+    <script type="module" src="js/dashboard.js"></script>
+    </body>
+</html>

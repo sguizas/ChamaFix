@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap');
+
+/* =====================================================
+   BASE (todas as páginas)
+   ===================================================== */
+* { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; }
+body { min-width: 320px; min-height: 100%; margin: 0; font-synthesis: none; }
+a, button { -webkit-tap-highlight-color: transparent; }
+button, input { font: inherit; }
+.escondido { display: none; }
+
+/* Botões e status (usados no cliente e no dashboard) */
+.botao {
+  background-color: #6911ac;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.botao:hover { background-color: #792eb2; }
+.botao-status {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+.offline { background-color: red; color: #fff; }
+.online { background-color: #6911ac; color: #fff; }
+
+/* Chat (layout comum; as cores ficam em cada página) */
+.chat { margin-top: 10px; padding-top: 8px; }
+.chat-mensagens { height: 120px; overflow-y: auto; border-radius: 8px; padding: 6px; margin-bottom: 8px; }
+.chat-vazio { font-size: 13px; margin: 0; opacity: .75; }
+.msg { font-size: 13px; padding: 4px 8px; margin: 4px 0; border-radius: 8px; }
+.chat-form { display: flex; gap: 8px; }
+.chat-form input { flex: 1; min-width: 0; }
+
+/* =====================================================
+   PÁGINA INICIAL (index.html) - CSS do designer
+   ===================================================== */
+body.pagina-index {
+  color: #000;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-rendering: geometricPrecision;
+}
+.welcome-page {
+  display: grid;
+  grid-template-columns: minmax(355px, 38.6%) 1fr;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff;
+}
+.brand-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #161417;
+}
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-4px);
+}
+.brand-lockup__symbol {
+  width: 211px;
+  height: 157px;
+  object-fit: contain;
+}
+.brand-lockup__name {
+  margin: 8px 0 0;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 800;
+  line-height: normal;
+}
+.brand-lockup__name span:last-child { color: #6911ac; }
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: clamp(72px, 13.4vh, 110px) 48px 64px;
+  background: #fff;
+}
+.welcome-copy { width: min(100%, 714px); text-align: center; }
+.welcome-copy h2 { margin: 0; font-size: 40px; font-weight: 700; line-height: normal; }
+.welcome-copy p { margin: 4px 0 0; font-size: 20px; font-weight: 400; line-height: 1.2; }
+.profile-options {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(100px, 13.4vw, 172px);
+  margin-top: clamp(92px, 15.6vh, 117px);
+}
+.profile-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+.profile-option__card {
+  display: flex;
+  width: 144px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #8839c4;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.profile-option__icon {
+  display: block;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.profile-option__icon--client { transform: rotate(.16deg); }
+.profile-option__icon--provider { width: 80px; height: 80px; }
+.profile-option__label { margin-top: 0; font-size: 30px; font-weight: 600; line-height: normal; }
+.profile-option:hover .profile-option__card {
+  transform: translateY(-4px);
+  background: #792eb2;
+  box-shadow: 0 10px 24px rgb(105 17 172 / 22%);
+}
+.profile-option:focus-visible .profile-option__card { outline: 4px solid #000; outline-offset: 4px; }
+.profile-option:active .profile-option__card { transform: translateY(-1px) scale(.98); }
+
+@media (max-width: 900px) {
+  .welcome-page { grid-template-columns: minmax(290px, 35%) 1fr; }
+  .brand-lockup__symbol { width: 170px; height: 127px; }
+  .brand-lockup__name { font-size: 40px; }
+  .welcome-content { padding-right: 28px; padding-left: 28px; }
+  .welcome-copy h2 { font-size: 34px; }
+  .welcome-copy p { font-size: 17px; }
+  .profile-options { gap: 56px; }
+  .profile-option__card { width: 126px; height: 106px; }
+  .profile-option__label { font-size: 25px; }
+}
+@media (max-width: 680px) {
+  .welcome-page { display: block; overflow: visible; }
+  .brand-panel { min-height: 250px; padding: 30px 20px; }
+  .brand-lockup { transform: none; }
+  .brand-lockup__symbol { width: 132px; height: 99px; }
+  .brand-lockup__name { margin-top: 0; font-size: 34px; }
+  .welcome-content { min-height: calc(100vh - 250px); padding: 42px 24px 50px; }
+  .welcome-copy h2 { font-size: 30px; }
+  .welcome-copy p { margin-top: 8px; font-size: 16px; line-height: 1.45; }
+  .profile-options { gap: clamp(24px, 12vw, 64px); margin-top: 48px; }
+  .profile-option__card { width: 116px; height: 98px; }
+  .profile-option__icon { width: 76px; height: 76px; }
+  .profile-option__icon--provider { width: 68px; height: 68px; }
+  .profile-option__label { margin-top: 3px; font-size: 22px; }
+}
+@media (max-width: 390px) {
+  .profile-options { gap: 18px; }
+  .profile-option__card { width: 108px; height: 92px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-option__card { transition: none; }
+}
+
+/* =====================================================
+   TELA DO CLIENTE (cliente.html) - CSS do designer
+   ===================================================== */
+body.pagina-cliente {
+  font-family: "Inter", Arial, sans-serif;
+  color: #000;
+  background: #d9d9d9;
+}
+html:has(body.pagina-cliente) { background: #d9d9d9; }
+.page {
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh;
+  flex-direction: column;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+.hero {
+  width: 100%;
+  min-height: 200px;
+  flex: 0 0 200px;
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../assets/banner.jpg") center / cover no-repeat;
+  box-shadow: inset 0 4px 4px rgba(0,0,0,.24);
+}
+.testimonials {
+  display: grid;
+  width: calc(100% - 36px);
+  max-width: 1288px;
+  margin: 26px auto 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 3.4vw, 56px);
+}
+.testimonial-card {
+  min-width: 0;
+  min-height: 169px;
+  padding: 8px 9px 12px;
+  border-radius: 11px;
+  color: #fff;
+  background: #7e6b8c;
+}
+.testimonial-header {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 59px minmax(0, 1fr) 25px;
+  align-items: center;
+  gap: 7px;
+}
+.avatar { display: block; width: 59px; height: 59px; object-fit: cover; border-radius: 50%; }
+.handle {
+  min-width: 0; overflow: hidden; font-size: 12px; font-weight: 400;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+.star { display: block; width: 25px; height: 25px; object-fit: contain; align-self: start; }
+.testimonial-card p { margin: 5px 10px 0; font-size: 12px; font-weight: 400; line-height: 1.35; }
+.search {
+  display: flex;
+  width: min(552px, calc(100% - 36px));
+  height: 59px;
+  margin: clamp(54px, 20.9vh, 143px) auto 0;
+  align-items: center;
+  border-radius: 13px;
+  background: #7e6b8c;
+}
+.search button {
+  display: grid; width: 56px; height: 59px; flex: 0 0 56px;
+  padding: 0; place-items: center; border: 0; background: transparent; cursor: pointer;
+}
+.search button img { display: block; width: 40px; height: 40px; object-fit: contain; }
+.search input {
+  width: 100%; height: 100%; padding: 0 22px 0 0; border: 0; outline: 0;
+  color: #fff; background: transparent; font-size: 15px;
+}
+.search input::placeholder { color: #fff; opacity: 1; }
+.search:focus-within { outline: 2px solid rgba(0,0,0,.55); outline-offset: 2px; }
+.search input::-webkit-search-cancel-button { filter: invert(1); }
+.page-actions {
+  display: flex; width: 100%; margin-top: auto; padding: 20px 49px 11px 5px;
+  align-items: flex-end; justify-content: space-between;
+}
+.page-actions a {
+  display: grid; min-width: 87px; height: 55px; padding: 0 14px; place-items: center;
+  border: 1px solid #000; border-radius: 30px; color: #000; background: #d9d9d9;
+  font-size: 12px; text-decoration: none;
+}
+.page-actions a:last-child { min-width: 102px; height: 43px; }
+.page-actions a:hover, .page-actions a:focus-visible { color: #fff; background: #7e6b8c; outline: none; }
+@media (max-width: 900px) {
+  .testimonials { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .search { margin-top: 54px; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: 150px; flex-basis: 150px; }
+  .testimonials { grid-template-columns: 1fr; }
+  .testimonial-card { min-height: 156px; }
+  .search input { font-size: 12px; }
+  .page-actions { padding-right: 12px; }
+}
+
+/* ---- Itens da nossa página, no padrão do designer ---- */
+.pagina-cliente .hero { background-color: #3b2a4a; }
+.pedido-titulo { width: min(552px, calc(100% - 36px)); margin: 36px auto 0; text-align: center; }
+.pedido-titulo h1 { margin: 0; font-size: 30px; font-weight: 700; }
+.pedido-titulo p { margin: 6px 0 0; font-size: 15px; }
+
+.pedido-form {
+  width: min(552px, calc(100% - 36px));
+  margin: 24px auto 0;
+}
+.pedido-form .rotulo { display: block; margin: 0 0 6px; font-size: 14px; font-weight: 600; }
+.pedido-form .search { width: 100%; margin: 0 0 18px; }
+.search-icone { display: block; width: 28px; height: 28px; margin: 0 14px; flex: none; filter: brightness(0) invert(1); }
+.opcoes-urgencia { display: flex; gap: 12px; margin: 0 0 14px; }
+.opcao-urgencia {
+  display: flex; flex: 1; align-items: center; gap: 8px; padding: 14px 18px;
+  border-radius: 13px; color: #fff; background: #7e6b8c; font-size: 15px; cursor: pointer;
+}
+.opcao-urgencia input { accent-color: #300055; }
+.pedido-form input[type="date"] {
+  width: 100%; height: 59px; padding: 0 22px; border: 0; border-radius: 13px;
+  color: #fff; background: #7e6b8c; font-size: 15px; color-scheme: dark;
+}
+#bloco-agenda { margin: 0 0 14px; }
+.pagina-cliente .botao {
+  display: grid; width: 201px; height: 51px; margin: 22px auto 0; padding: 0;
+  place-items: center; color: #fff; font-size: 15px; background: #8841be; border-radius: 25px;
+}
+.pagina-cliente .botao:hover { background: #6d00c1; }
+
+.titulo-pedidos { width: min(552px, calc(100% - 36px)); margin: 34px auto 6px; font-size: 20px; }
+#meus-pedidos { width: min(552px, calc(100% - 36px)); margin: 0 auto 10px; }
+.pagina-cliente .chamado {
+  margin: 8px 0; padding: 10px 12px; border-radius: 11px; color: #fff; background: #7e6b8c;
+}
+.pagina-cliente .chamado p { margin: 0 0 6px; font-size: 14px; line-height: 1.35; }
+.pagina-cliente .chat { border-top: 1px solid rgba(255,255,255,.3); }
+.pagina-cliente .chat-mensagens { background: rgba(0,0,0,.25); }
+.pagina-cliente .msg { background: rgba(255,255,255,.18); }
+.pagina-cliente .msg-prestador { background: #6d00c1; }
+.pagina-cliente .chat-form input { padding: 8px 12px; border: 0; border-radius: 25px; color: #000; background: #fff; font-size: 13px; }
+.pagina-cliente .chat-form .botao { width: auto; height: 36px; margin: 0; padding: 0 16px; font-size: 13px; }
+.pagina-cliente .aviso-vazio { color: #444; }
+
+/* =====================================================
+   DASHBOARD DO PRESTADOR (dashboard.html)
+   Visual escuro com bordas roxas, conforme a imagem do designer
+   ===================================================== */
+body.pagina-dashboard {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: radial-gradient(circle at 80% 0%, #3a3433 0%, #1d1d1d 55%) fixed;
+}
+.container { display: flex; }
+.menu {
+  width: 200px;
+  background-color: #300055;
+  color: #fff;
+  border-right: 2px solid #8839c4;
+  transition: transform 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+  padding-top: 80px;
+}
+.menu.fechado { transform: translateX(-100%); }
+.botao-sair { margin-left: 20px; background-color: #8841be; font-weight: 600; }
+.barrinha {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  line-height: 1;
+  color: #1d1d1d;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  z-index: 1000;
+  cursor: pointer;
+}
+.pagina-dashboard .conteudo { max-width: 1100px; margin: 0 auto; padding: 70px 24px 30px; }
+.dashtitulo { margin: 0 0 4px; font-size: 32px; font-weight: 800; color: #fff; }
+.pagina-dashboard .conteudo > p { margin: 0 0 20px; font-size: 15px; color: #cfcfcf; }
+.pagina-dashboard h2 { margin: 26px 0 8px; font-size: 20px; font-weight: 700; color: #fff; }
+
+/* Painel de cartões */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.indicador,
+.grafico-bloco {
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+  padding: 14px 18px;
+  border: 2px solid #8839c4;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .05);
+  box-shadow: 0 0 14px rgba(136, 57, 196, .25);
+}
+.indicador h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.indicador .linha {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.indicador .linha strong { font-size: 24px; }
+.indicador .total-numero { font-size: 28px; color: #fff; }
+.avaliacao-nota { margin: 6px 0 0; font-size: 38px; font-weight: 800; line-height: 1; }
+.avaliacao-estrelas { display: flex; gap: 6px; margin-top: 10px; }
+.avaliacao-estrelas img { display: block; width: 30px; height: 30px; }
+.avaliacao-estrelas .meia-estrela { width: 27px; overflow: hidden; }
+.saldo-valor { margin: auto 0; font-size: 26px; font-weight: 800; }
+.cartao-saldo { min-height: 260px; }
+
+/* Gráfico semanal (barras feitas com div) */
+.grafico-bloco { grid-column: span 2; min-height: 260px; }
+.grafico-topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.grafico-bloco h2 { margin: 0; font-size: 16px; }
+.legenda { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; }
+.legenda i { display: inline-block; width: 16px; height: 12px; border-radius: 50%; background: #8839c4; }
+.total-semana { margin: 6px 0 0; font-size: 13px; color: #cfcfcf; }
+.pagina-dashboard .conteudo .total-semana { margin: 6px 0 0; }
+.grafico {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.coluna-grafico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  max-width: 60px;
+}
+.barra-grafico { width: 100%; background-color: #8839c4; border-radius: 4px 4px 0 0; }
+.grafico-numero { margin-bottom: 4px; font-size: 14px; font-weight: 700; }
+.grafico-dia { margin-top: 6px; font-size: 13px; font-weight: 700; }
+
+/* Listas de chamados e serviços */
+.chamado {
+  margin: 8px 0;
+  padding: 12px 14px;
+  border: 1px solid #8839c4;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .05);
+}
+.chamado p { margin: 0 0 8px; font-size: 15px; }
+.chamado .acao { display: flex; flex-wrap: wrap; gap: 8px; }
+.pagina-dashboard input {
+  padding: 8px 12px;
+  border: 1px solid #8839c4;
+  border-radius: 25px;
+  color: #fff;
+  background: #2a2a2a;
+  font-size: 14px;
+}
+.pagina-dashboard input::placeholder { color: #aaa; }
+.aviso-vazio { color: #aaa; font-size: 14px; }
+.pagina-dashboard .chat { border-top: 1px solid rgba(255,255,255,.2); }
+.pagina-dashboard .chat-mensagens { background: rgba(0,0,0,.35); }
+.pagina-dashboard .msg { background: #3c3c3c; }
+.pagina-dashboard .msg-prestador { background: #6d00c1; }
+
+@media (max-width: 900px) {
+  .resumo { grid-template-columns: 1fr; }
+  .grafico-bloco { grid-column: auto; }
+  .cartao-saldo { min-height: 160px; }
+}
